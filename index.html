@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ballers Against Violence</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="styles/animate.css">
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/1117b946ec.js"></script>
+	<div class="wrapper">
+		<header>
+			<div class="logo-wrap">
+				<img src="styles/images/basketball.svg" alt="Baller without Violence Logo" class="animated bounce">
+				<h1>Ballers Without Violence</h1>
+			</div>
+			<div class="nav-wrap">
+				<div class="hamburger-wrap"><i class="fa fa-bars" aria-hidden="true" class="hamburger"></i></div>
+				<nav class="burger-maker">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="map.html">Games</a></li>
+						<li><a href="#get-involved">Get Involved</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- Coverr Video -->
+		<div class="homepage-hero-module">
+	    <div class="video-container">
+	        <div class="filter"></div>
+	        <video autoplay loop class="fillWidth" poster="styles/images/shoelaces/shoelaces.jpg">
+	            <source src="styles/images/shoelaces/shoelaces.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+	            <source src="styles/images/shoelaces/shoelaces.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+	        </video>
+	        <!-- <div class="poster hidden">
+	            <img src="styles/images/shoelaces/shoelaces.jpg" alt="">
+	        </div> -->
+	        <div class="video-overlay">
+	        	<h2>A Step Forward</h2>
+	        </div>
+	    </div>
+	    
+</div>
+	<!-- 	<div class="fixed-image bg-image-1"></div> -->
+		<section id="mission">
+			<div>
+				<h2>Mission</h2>
+				<p>Ballers without violence exists to bring together people together to talk and play basketball.</p>
+			</div>
+		</section>
+		<div class="fixed-image bg-image-2"></div>
+		<section id="about-us">
+			<div class="about-left">
+				<img src="styles/images/baller.jpg" alt="boy with basketball">
+			</div>
+			<div class="about-right">
+				<h2>About Us</h2>
+				<p>Ballers without violence is a non-profit organization dedicated to providing a safe space for people to meet and discuss their histories of overcoming violence.</p>
+				<p>
+					we organize pick up basketball games across the GTA to reach people in their communities to create places free of violence.
+				</p>
+			</div>
+		</section>
+		<div class="fixed-image bg-image-3"></div>
+		<footer>
+			<div class="contact floater">
+				<div class="social">
+					<ul>
+						<li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+						<li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+						<li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+						<li><i class="fa fa-youtube" aria-hidden="true"></i></li>
+					</ul>
+				</div>
+				<div class="info">
+					<ul>
+						<li>96 Denison Ave</li>
+						<li>Toronto, ON</li>
+						<li>(416) 555-5555</li>
+						<li><a href="mailto:someone@example.com?Subject=Baller%20Mail" target="_top">Send Mail</a></li>
+					</ul>
+				</div>
+				<div class="location-map">
+					<!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=52.516284,13.377678&zoom=12&size=200x200&maptype=roadmap
+&markers=color:blue|label:1|52.516284,13.377678"> -->
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+		//jQuery is required to run this code
+$( document ).ready(function() {
+
+    scaleVideoContainer();
+
+    initBannerVideoSize('.video-container .poster img');
+    initBannerVideoSize('.video-container .filter');
+    initBannerVideoSize('.video-container video');
+
+    $(window).on('resize', function() {
+        scaleVideoContainer();
+        scaleBannerVideoSize('.video-container .poster img');
+        scaleBannerVideoSize('.video-container .filter');
+        scaleBannerVideoSize('.video-container video');
+    });
+
+});
+
+function scaleVideoContainer() {
+
+    var height = $(window).height() + 5;
+    var unitHeight = parseInt(height) + 'px';
+    $('.homepage-hero-module').css('height',unitHeight);
+
+}
+
+function initBannerVideoSize(element){
+
+    $(element).each(function(){
+        $(this).data('height', $(this).height());
+        $(this).data('width', $(this).width());
+    });
+
+    scaleBannerVideoSize(element);
+
+}
+
+function scaleBannerVideoSize(element){
+
+    var windowWidth = $(window).width(),
+    windowHeight = $(window).height() + 5,
+    videoWidth,
+    videoHeight;
+
+    // console.log(windowHeight);
+
+    $(element).each(function(){
+        var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+        $(this).width(windowWidth);
+
+        if(windowWidth < 1000){
+            videoHeight = windowHeight;
+            videoWidth = videoHeight / videoAspectRatio;
+            $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+            $(this).width(videoWidth).height(videoHeight);
+        }
+
+        $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+    });
+}
+	</script>
+	<script>
+		$(function(){
+			$('.hamburger-wrap').click( function(){
+				$('.burger-maker').toggleClass('drop-nav');
+				console.log("click")
+			})
+		})
+	</script>
+</body>
+</html>

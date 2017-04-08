@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ballers Without Violence | Map</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="styles/animate.css">
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/1117b946ec.js"></script>
+	<div class="wrapper">
+		<header>
+			<div class="logo-wrap">
+				<img src="styles/images/basketball.svg" alt="Baller without Violence Logo" class="animated bounce">
+				<h1>Ballers Without Violence</h1>
+			</div>
+			<div class="nav-wrap">
+				<div class="hamburger-wrap"><i class="fa fa-bars" aria-hidden="true" class="hamburger"></i></div>
+				<nav class="burger-maker">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="map.html">Games</a></li>
+						<li><a href="#get-involved">Get Involved</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="pickup-map">
+			<div class="map-options">
+				<div>
+					<h2>Add a Game</h2>
+				</div>
+				<div>
+					<h2>List of Games</h2>
+				</div>
+			</div>
+			<div id="map"></div>
+			    <script>
+			      function initMap() {
+			        var toronto = {lat: 43.659735, lng: -79.401581};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: toronto
+			        });
+			        var marker = new google.maps.Marker({
+			          position: toronto,
+			          map: map
+			        });
+			      }
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmtg6Jh6HI4sK10B_pDHAaxFUwh9u-wio&callback=initMap">
+			    </script>
+		</section>
+	<script>
+		$(function(){
+			$('.hamburger-wrap').click( function(){
+				$('.burger-maker').toggleClass('drop-nav');
+				console.log("click")
+			})
+		})
+	</script>
+</body>
+</html>
