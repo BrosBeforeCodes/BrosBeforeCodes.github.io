@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="styles/animate.css">
 	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,7 +52,23 @@
 				<p>Ballers without violence exists to bring together people together to talk and play basketball.</p>
 			</div>
 		</section>
-		<div class="fixed-image bg-image-2"></div>
+		<!-- Flickity testimonials -->
+		<div class="fixed-image bg-image-2">
+			<div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+				<div class="carousel-cell">
+					<p>Lorem Khaled Ipsum is a major key to success. Find peace, life is like a water fall, you’ve gotta flow. Find peace, life is like a water fall, you’ve gotta flow. Congratulations, you played yourself. To be successful you’ve got to work hard, to make history, simple, you’ve got to make it.</p>
+					<span> - DJ Khalid</span>
+				</div>
+				<div class="carousel-cell">
+					<p>The key to more success is to have a lot of pillows. We the best. Major key, don’t fall for the trap, stay focused. It’s the ones closest to you that want to see you fail. Hammock talk come soon. Surround yourself with angels.</p>
+					<span> - DJ Khalid</span>
+				</div>
+				<div class="carousel-cell">
+					<p>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. You see the hedges, how I got it shaped up?</p>
+					<span> - DJ Khalid</span>
+				</div>
+			</div>
+		</div>
 		<section id="about-us">
 			<div class="about-left">
 				<img src="styles/images/baller.jpg" alt="boy with basketball">
@@ -91,6 +108,14 @@
 		</footer>
 	</div>
 	<script>
+		$('.main-carousel').flickity({
+		  // options
+		  cellAlign: 'left',
+		  contain: true
+		});
+	</script>
+	<script>
+
 		//jQuery is required to run this code
 $( document ).ready(function() {
 
@@ -163,5 +188,6 @@ function scaleBannerVideoSize(element){
 			})
 		})
 	</script>
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 </html>
